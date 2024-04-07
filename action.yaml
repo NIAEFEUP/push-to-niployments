@@ -33,7 +33,7 @@ runs:
   steps:
     - name: "Parse project and repository name"
       id: "name-parsing"
-      run: ${{ github.action_path }}/scripts/get-project-and-repository-names.sh
+      run: ${{ github.action_path }}/scripts/get-project-and-repository-name.sh
       shell: bash
       env:
         GITHUB_REPOSITORY_NAME: ${{ github.event.repository.name }}
