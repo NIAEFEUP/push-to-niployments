@@ -1,4 +1,4 @@
-name: "NIployments Deployment Action"
+name: "niployments-image-deployment"
 description: |
   Push a versioned image, built from this project, to NIployments' Image Registry
 
