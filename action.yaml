@@ -21,8 +21,8 @@ runs:
       shell: bash
       env:
         GITHUB_REPOSITORY_NAME: ${{ github.event.repository.name }}
-        INPUT_PROJECT_NAME: ${{ input.project_name }}
-        INPUT_REPOSITORY_NAME: ${{ input.repository_name }}
+        INPUT_PROJECT_NAME: ${{ inputs.project_name }}
+        INPUT_REPOSITORY_NAME: ${{ inputs.repository_name }}
 
     - name: Login to NIployments registry
       uses: docker/login-action@v1
@@ -37,6 +37,10 @@ runs:
 
     - name: Checkout
       uses: actions/checkout@v4
+
+    - name: Fetch latest published version if it exists.
+      run: ./scripts/get-and-bump-version.sh
+      shell: bash
 
     - name: Generate new tag for project image
       id: tag
