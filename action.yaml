@@ -33,7 +33,7 @@ runs:
   steps:
     - name: "Parse project and repository name"
       id: "name-parsing"
-      run: ./scripts/get-project-and-repository-names.sh
+      run: ${{ github.action_path }}/scripts/get-project-and-repository-names.sh
       shell: bash
       env:
         GITHUB_REPOSITORY_NAME: ${{ github.event.repository.name }}
@@ -55,7 +55,7 @@ runs:
       uses: actions/checkout@v4
 
     - name: Fetch latest published version if it exists.
-      run: ./scripts/get-and-bump-version.sh
+      run: ${{ github.action_path }}/scripts/get-and-bump-version.sh
       shell: bash
 
     - name: Generate new tag for project image
