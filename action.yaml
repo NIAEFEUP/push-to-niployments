@@ -5,8 +5,9 @@ description: |
 inputs:
   project_name:
     description: |
-      The name of the project under which to store the generated image artifact. If this project does not exist in the registry, this action will try to create it.
+      The name of the project under which to store the generated image artifact.
     required: false
+    default: niaefeup
   repository_name:
     description: |
       The name of the repository, stored under "project_name", to which the new image artifact should be pushed
@@ -40,13 +41,12 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: "Parse project and repository name"
+    - name: "Parse repository name"
       id: "name-parsing"
-      run: ${{ github.action_path }}/scripts/get-project-and-repository-name.sh
+      run: ${{ github.action_path }}/scripts/get-repository-name.sh
       shell: bash
       env:
         GITHUB_REPOSITORY_NAME: ${{ github.event.repository.name }}
-        INPUT_PROJECT_NAME: ${{ inputs.project_name }}
         INPUT_REPOSITORY_NAME: ${{ inputs.repository_name }}
 
     - name: Login to NIployments registry
@@ -67,7 +67,7 @@ runs:
       id: tag
       uses: docker/metadata-action@v5
       with:
-        images: ${{ inputs.NIPLOYMENTS_REGISTRY_URL }}/${{ steps.name-parsing.outputs.PROJECT_NAME }}/${{ steps.name-parsing.outputs.REPOSITORY_NAME }}
+        images: ${{ inputs.NIPLOYMENTS_REGISTRY_URL }}/${{ inputs.project_name }}/${{ steps.name-parsing.outputs.REPOSITORY_NAME }}
         tags: |
           type=ref,event=branch
           type=ref,event=pr
