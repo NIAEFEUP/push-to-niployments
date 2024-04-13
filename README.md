@@ -8,6 +8,8 @@ Action used by NIAEFEUP projects to publish images built from them to an interna
   - [Inputs](#inputs)
     - [project\_name:](#project_name)
     - [repository\_name:](#repository_name)
+    - [docker\_context:](#docker_context)
+    - [docker\_dockerfile:](#docker_dockerfile)
     - [NIPLOYMENTS\_REGISTRY\_URL:](#niployments_registry_url)
     - [NIPLOYMENTS\_REGISTRY\_USERNAME:](#niployments_registry_username)
     - [NIPLOYMENTS\_REGISTRY\_PASSWORD:](#niployments_registry_password)
@@ -29,6 +31,15 @@ The inputs to this action as described in the action manifest are:
 - **Description**: The name of the Harbor repository under which to store this artifact. For further information see [the relevant documentation](https://goharbor.io/docs/2.10.0/working-with-projects/working-with-images/repositories/).
 - **Required**: `false`
 - **Default**: This value defaults to the all but the first sections of a repository's name concatenated, or the repository's name. See [this section](#name-configuration) for further details.
+
+### docker_context:
+- **Description**: The context Docker uses to build this image.
+- **Required**: `false`
+
+### docker_dockerfile:
+- **Description**: The name of the Dockerfile used to build this image.
+- **Required**: `false`
+- **Default**: `Dockerfile-prod`
 
 
 
