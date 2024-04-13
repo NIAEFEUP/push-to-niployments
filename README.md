@@ -13,7 +13,6 @@ Action used by NIAEFEUP projects to publish images built from them to an interna
     - [NIPLOYMENTS\_REGISTRY\_URL:](#niployments_registry_url)
     - [NIPLOYMENTS\_REGISTRY\_USERNAME:](#niployments_registry_username)
     - [NIPLOYMENTS\_REGISTRY\_PASSWORD:](#niployments_registry_password)
-  - [Name Configuration](#name-configuration)
   - [Example](#example)
   - [License](#license)
 
@@ -25,12 +24,11 @@ The inputs to this action as described in the action manifest are:
 ### project_name:
 - **Description**: The name of the Harbor project under which to store this artifact. For further information see [the relevant documentation](https://goharbor.io/docs/2.10.0/working-with-projects/).
 - **Required**: `false`
-- **Default**: This value defaults to the first section of a repository's name, or `niaefeup`. See [this section](#name-configuration) for further details.
+- **Default**: `niaefeup`
 
 ### repository_name:
 - **Description**: The name of the Harbor repository under which to store this artifact. For further information see [the relevant documentation](https://goharbor.io/docs/2.10.0/working-with-projects/working-with-images/repositories/).
 - **Required**: `false`
-- **Default**: This value defaults to the all but the first sections of a repository's name concatenated, or the repository's name. See [this section](#name-configuration) for further details.
 
 ### docker_context:
 - **Description**: The context Docker uses to build this image.
@@ -57,29 +55,6 @@ The inputs to this action as described in the action manifest are:
 ### NIPLOYMENTS_REGISTRY_PASSWORD:
 - **Description**: The password to use when authentication against the Image Registry deployed in the NIployments cluster.
 - **Required**: `true`
-
-
-## Name Configuration
-
-It is usual to use a `-` character to separate various components in a repository name inside NIAEFEUP.
-
-For example, NIJobs has both `nijobs-be`, `nijobs-fe` and `nijobs-locations` repositories (with the relevant projects being deployed).
-
-Since they all relate to the same project (NIJobs), it makes sense to split their names on the `-` character, giving us `be`, `fe` and `locations` repositories under the `nijobs` project.
-
-This in turn aligns well with Harbor's organization of container artifacts.
-
-The `get-project-and-repository-name.sh` script takes the following parameters:
-- INPUT_PROJECT_NAME
-- INPUT_REPOSITORY_NAME
-- GITHUB_REPOSITORY_NAME
-
-Both `INPUT_*` variables are optional inputs provided by action consumers. The `GITHUB_REPOSITORY_NAME` variable is the name of the GitHub repository where this action is being used.
-
-If both `INPUT_*` variables are specified, those supersede any further processing and are used as the *de-facto* values for the project and repository names.
-Otherwise, the `GITHUB_REPOSITORY_NAME` is parsed as follows:
-- If the name contains the `-` separator character, it is split using that character into a list of strings. The first element is the name of the repository and the rest are concatenated together (using the same separator character) to form the repository name.
-- If the name does not contain the `-` separator character, the project name defaults to `niaefeup` and the repository name is the name of the GitHub repository instead.
 
 ## Example
 

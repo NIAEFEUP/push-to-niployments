@@ -13,6 +13,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Changed the way names are computed: every image will now live under the `niaefeup` Harbor project by default, unless specified.
 - Changed `scripts/get-project-and-repository-name.sh` to `scripts/get-repository-name.sh`.
 
+### Removed
+- Removed naming section from `README.md`
+
 ## [v1.1.0]
 
 ### Added
