@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Added new input `docker_dockerfile` option;
+
+### Deleted
+- Removed `scripts/get-and-bump-version.sh`;
+
 ## [v1] - 2024-04-07
 
 ### Added

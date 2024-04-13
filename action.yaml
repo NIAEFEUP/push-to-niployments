@@ -11,6 +11,11 @@ inputs:
     description: |
       The name of the repository, stored under "project_name", to which the new image artifact should be pushed
     required: false
+  docker_dockerfile:
+    description: |
+      The name of the Dockerfile used to build this image.
+    required: false
+    default: Dockerfile-prod
 
   # Due to limitations in composite runners, this is, in my opinion, the best way to do this.
   # See https://github.com/orgs/community/discussions/49689 for more details.
@@ -53,10 +58,6 @@ runs:
 
     - name: Checkout
       uses: actions/checkout@v4
-
-    - name: Fetch latest published version if it exists.
-      run: ${{ github.action_path }}/scripts/get-and-bump-version.sh
-      shell: bash
 
     - name: Generate new tag for project image
       id: tag
