@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v2]
+
 ### Changed
 - Changed the way names are computed: every image will now live under the `niaefeup` Harbor project by default, unless specified.
 - Changed `scripts/get-project-and-repository-name.sh` to `scripts/get-repository-name.sh`.
@@ -30,6 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Added base source code files for the action.
 
-[Unreleased]: https://github.com/NIAEFEUP/push-to-niployments/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/NIAEFEUP/push-to-niployments/compare/v2...HEAD
+[v2]: https://github.com/NIAEFEUP/push-to-niployments/compare/v1.1.0...v2
 [v1.1.0]: https://github.com/NIAEFEUP/push-to-niployments/compare/v1...v1.1.0
 [v1]: https://github.com/NIAEFEUP/push-to-niployments/releases/tag/v1

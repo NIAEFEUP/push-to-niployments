@@ -80,7 +80,7 @@ runs:
       shell: bash
       env:
         INPUT_DOCKER_CONTEXT: ${{ inputs.docker_context }}
-        INPUT_DOCKER_DOCKERFILE: ${{ inputs.project_name }}
+        INPUT_DOCKER_DOCKERFILE: ${{ inputs.docker_dockerfile }}
 
     - name: Build and push
       uses: docker/build-push-action@v5
