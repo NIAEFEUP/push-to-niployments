@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Changed the way names are computed: every image will now live under the `niaefeup` Harbor project.
+
 ## [v1.1.0]
 
 ### Added
