@@ -10,7 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- Added new input `docker_dockerfile` option;
+- Added new input `docker_dockerfile` and `docker_context` options;
+- Added `scripts/parse-docker-context-and-dockerfile.sh`
 
 ### Deleted
 - Removed `scripts/get-and-bump-version.sh`;

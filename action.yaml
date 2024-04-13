@@ -15,7 +15,11 @@ inputs:
     description: |
       The name of the Dockerfile used to build this image.
     required: false
-    default: Dockerfile-prod
+    default: "Dockerfile-prod"
+  docker_context:
+    description: |
+      The path to the directory containing the Dockerfile used to build the project.
+    required: false
 
   # Due to limitations in composite runners, this is, in my opinion, the best way to do this.
   # See https://github.com/orgs/community/discussions/49689 for more details.
@@ -70,9 +74,19 @@ runs:
           type=semver,pattern={{version}}
           type=semver,pattern={{major}}.{{minor}}
 
+    - name: "Parse Docker context and Dockerfile"
+      id: "docker-parsing"
+      run: ${{ github.action_path }}/scripts/parse-docker-context-and-dockerfile.sh
+      shell: bash
+      env:
+        INPUT_DOCKER_CONTEXT: ${{ inputs.docker_context }}
+        INPUT_DOCKER_DOCKERFILE: ${{ inputs.project_name }}
+
     - name: Build and push
       uses: docker/build-push-action@v5
       with:
         push: true
+        context: ${{ steps.docker-parsing.outputs.DOCKER_CONTEXT }}
+        file: ${{ steps.docker-parsing.outputs.DOCKER_DOCKERFILE }}
         tags: ${{ steps.tag.outputs.tags }}
         labels: ${{ steps.tag.outputs.labels }}
