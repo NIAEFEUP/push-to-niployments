@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.1.0]
+
 ### Added
 - Added new input `docker_dockerfile` and `docker_context` options;
 - Added `scripts/parse-docker-context-and-dockerfile.sh`
@@ -21,5 +23,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Added base source code files for the action.
 
-[unreleased]: https://github.com/Naapperas/zon/compare/v1.0.0...HEAD
-[v1]: https://github.com/Naapperas/zon/releases/tag/v1.0.0
+[Unreleased]: https://github.com/NIAEFEUP/push-to-niployments/compare/v1.1.0...HEAD
+[v1.1.0]: https://github.com/NIAEFEUP/push-to-niployments/compare/v1...v1.1.0
+[v1]: https://github.com/NIAEFEUP/push-to-niployments/releases/tag/v1
