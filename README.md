@@ -47,7 +47,7 @@ The inputs to this action as described in the action manifest are:
 
 
 > [!WARNING]  
-> Due to limitations in Composite Action runners, some contexts (namely `vars` and `secrets`) are not available to use inside the action, as seen [here](https://github.com/NIAEFEUP/niployments-deploy-action-test/actions/runs/8588451113). `v1` will include those values as inputs while this is not fixed. See [this link](https://github.com/orgs/community/discussions/49689) for further details.
+> Due to limitations in Composite Action runners, some contexts (namely `vars` and `secrets`) are not available to use inside the action, as seen [here](https://github.com/NIAEFEUP/niployments-deploy-action-test/actions/runs/8588451113). Those values need to be provided as inputs while this is not fixed. See [this link](https://github.com/orgs/community/discussions/49689) for further details.
 
 ### NIPLOYMENTS_REGISTRY_URL:
 - **Description**: The URL of the Image Registry deployed in the NIployments cluster.
@@ -78,7 +78,7 @@ jobs:
 
     steps:
     - name: Upload to NIployments register
-      uses: NIAEFEUP/push-to-niployments@main
+      uses: NIAEFEUP/push-to-niployments@v2.1
       with:
         project_name: my-project
         repository_name: my-repository
