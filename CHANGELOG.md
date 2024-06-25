@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v2.1]
+
+### Added
+- Added new input `docker_target` option;
+
+### Changed
+- Usage instructions now refer to a specific tag instead of `main`
+
 ## [v2]
 
 ### Changed
