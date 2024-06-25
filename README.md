@@ -10,6 +10,7 @@ Action used by NIAEFEUP projects to publish images built from them to an interna
     - [repository\_name:](#repository_name)
     - [docker\_context:](#docker_context)
     - [docker\_dockerfile:](#docker_dockerfile)
+    - [docker\_target:](#docker_target)
     - [NIPLOYMENTS\_REGISTRY\_URL:](#niployments_registry_url)
     - [NIPLOYMENTS\_REGISTRY\_USERNAME:](#niployments_registry_username)
     - [NIPLOYMENTS\_REGISTRY\_PASSWORD:](#niployments_registry_password)
@@ -38,6 +39,10 @@ The inputs to this action as described in the action manifest are:
 - **Description**: The name of the Dockerfile used to build this image.
 - **Required**: `false`
 - **Default**: `Dockerfile-prod`
+
+### docker_target:
+- **Description**: Sets the target stage to build
+- **Required**: `false`
 
 
 

@@ -21,6 +21,10 @@ inputs:
     description: |
       The path to the directory containing the Dockerfile used to build the project.
     required: false
+  docker_target:
+    description: |
+      Sets the target stage to build
+    required: false
 
   # Due to limitations in composite runners, this is, in my opinion, the best way to do this.
   # See https://github.com/orgs/community/discussions/49689 for more details.
@@ -90,3 +94,4 @@ runs:
         file: ${{ steps.docker-parsing.outputs.DOCKER_DOCKERFILE }}
         tags: ${{ steps.tag.outputs.tags }}
         labels: ${{ steps.tag.outputs.labels }}
+        target: ${{ inputs.docker_target }}
