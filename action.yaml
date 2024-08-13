@@ -25,6 +25,10 @@ inputs:
     description: |
       Sets the target stage to build
     required: false
+  docker_build_args:
+    description: |
+      List of build-time variables
+    required: false
 
   # Due to limitations in composite runners, this is, in my opinion, the best way to do this.
   # See https://github.com/orgs/community/discussions/49689 for more details.
@@ -95,3 +99,4 @@ runs:
         tags: ${{ steps.tag.outputs.tags }}
         labels: ${{ steps.tag.outputs.labels }}
         target: ${{ inputs.docker_target }}
+        build-args: ${{ inputs.docker_build_args }}
