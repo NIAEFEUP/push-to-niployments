@@ -11,6 +11,9 @@ Action used by NIAEFEUP projects to publish images built from them to an interna
     - [docker\_context:](#docker_context)
     - [docker\_dockerfile:](#docker_dockerfile)
     - [docker\_target:](#docker_target)
+    - [docker\_build\_args:](#docker_build_args)
+    - [docker\_provenance:](#docker_provenance)
+    - [docker\_sbom:](#docker_sbom)
     - [NIPLOYMENTS\_REGISTRY\_URL:](#niployments_registry_url)
     - [NIPLOYMENTS\_REGISTRY\_USERNAME:](#niployments_registry_username)
     - [NIPLOYMENTS\_REGISTRY\_PASSWORD:](#niployments_registry_password)
@@ -43,6 +46,20 @@ The inputs to this action as described in the action manifest are:
 ### docker_target:
 - **Description**: Sets the target stage to build
 - **Required**: `false`
+
+### docker_build_args:
+- **Description**: List of build-time variables
+- **Required**: `false`
+
+### docker_provenance:
+- **Description**: Generate provenance attestation for the image artifact. Set to `false` (default) to avoid OCI index attestation wrappers that conflict with Harbor Garbage Collection.
+- **Required**: `false`
+- **Default**: `false`
+
+### docker_sbom:
+- **Description**: Generate SBOM attestation for the image artifact.
+- **Required**: `false`
+- **Default**: `false`
 
 
 
