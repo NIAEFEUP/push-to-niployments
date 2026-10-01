@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v2.3]
+
 ### Added
 - Added `docker_provenance` (default `false`) and `docker_sbom` (default `false`) inputs to disable Docker Buildx attestations that deadlock Harbor's Garbage Collection.
 
@@ -48,7 +50,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Added base source code files for the action.
 
-[Unreleased]: https://github.com/NIAEFEUP/push-to-niployments/compare/v2.2...HEAD
+[Unreleased]: https://github.com/NIAEFEUP/push-to-niployments/compare/v2.3...HEAD
+[v2.3]: https://github.com/NIAEFEUP/push-to-niployments/compare/v2.2...v2.3
 [v2.2]: https://github.com/NIAEFEUP/push-to-niployments/compare/v2.1...v2.2
 [v2.1]: https://github.com/NIAEFEUP/push-to-niployments/compare/v2...v2.1
 [v2]: https://github.com/NIAEFEUP/push-to-niployments/compare/v1.1.0...v2
