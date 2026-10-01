@@ -29,6 +29,16 @@ inputs:
     description: |
       List of build-time variables
     required: false
+  docker_provenance:
+    description: |
+      Generate provenance attestation for the image artifact. Set to false to avoid OCI index attestation wrappers that conflict with Harbor GC.
+    required: false
+    default: "false"
+  docker_sbom:
+    description: |
+      Generate SBOM attestation for the image artifact.
+    required: false
+    default: "false"
 
   # Due to limitations in composite runners, this is, in my opinion, the best way to do this.
   # See https://github.com/orgs/community/discussions/49689 for more details.
@@ -100,3 +110,5 @@ runs:
         labels: ${{ steps.tag.outputs.labels }}
         target: ${{ inputs.docker_target }}
         build-args: ${{ inputs.docker_build_args }}
+        provenance: ${{ inputs.docker_provenance }}
+        sbom: ${{ inputs.docker_sbom }}

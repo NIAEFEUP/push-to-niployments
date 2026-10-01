@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Added `docker_provenance` (default `false`) and `docker_sbom` (default `false`) inputs to disable Docker Buildx attestations that deadlock Harbor's Garbage Collection.
+
 ## [v2.2]
 
 ### Added
